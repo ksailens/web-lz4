@@ -1,56 +1,153 @@
-var fotos = ["cirilla.jpg", "doctor_who.jpg", "dovakin.jpg", "geralt.jpg", "illidan.jpg",
-    "jaina.jpeg", "Jean.jpeg", "konstantin.jpg", "legolas.jpg", "neo.jpg",
-    "ragnaros.jpg", "silvana.jpeg", "tauriel.jpg", "thrall.jpg", "tiranda.png"];
-var titles = ["Цирилла","Доктор Кто","Довакин","Геральт","Иллидан",
-    "Джайна Праудмур","Джин Грей","Джон Константин","Леголас","Нео",
-    "Рагнарос","Сильвана Ветрокрылая","Тауриэль","Тралл","Тиранда Шелест Ветра"];
+const data = [
+	{
+		src: "cirilla.jpg",
+		srcSmall: "cirilla-sm.jpg",
+		title: "Цирилла",
+	},
+	{
+		src: "doctor_who.jpg",
+		srcSmall: "doctor_who-sm.jpg",
+		title:  "Доктор Кто",
+	},
+	{
+		src: "dovakin.jpg",
+		srcSmall: "dovakin-sm.jpg",
+		title:  "Довакин",
+	},
+	{
+		src: "geralt.jpg",
+		srcSmall:  "geralt-sm.jpg",
+		title:  "Геральт",
+	},
+	{
+		src: "illidan.jpg",
+		srcSmall:  "illidan-sm.jpg",
+		title:  "Иллидан",
+	},
+	{
+		src: "jaina.jpeg",
+		srcSmall:  "jaina-sm.jpg",
+		title:  "Джайна Праудмур",
+	},
+	{
+		src: "Jean.jpeg",
+		srcSmall:  "Jean-sm.jpg",
+		title:  "Джин Грей",
+	},
+	{
+		src: "konstantin.jpg",
+		srcSmall:  "konstantin-sm.jpg",
+		title:  "Джон Константин",
+	},
+	{
+		src: "legolas.jpg",
+		srcSmall:  "legolas-sm.jpg",
+		title:  "Леголас",
+	},
+	{
+		src: "neo.jpg",
+		srcSmall:  "neo-sm.jpg",
+		title:  "Нео",
+	},
+	{
+		src: "ragnaros.jpg",
+		srcSmall:  "ragnaros-sm.jpg",
+		title:  "Рагнарос",
+	},
+	{
+		src: "silvana.jpeg",
+		srcSmall:  "silvana-sm.jpg",
+		title:  "Сильвана Ветрокрылая",
+	},
+	{
+		src: "tauriel.jpg",
+		srcSmall:  "tauriel-sm.jpg",
+		title:  "Тауриэль",
+	},
+	{
+		src: "thrall.jpg",
+		srcSmall:  "thrall-sm.jpg",
+		title:  "Тралл",
+	},
+	{
+		src: "tiranda.png",
+		srcSmall:  "tiranda-sm.png",
+		title:  "Тиранда Шелест Ветра",
+	}
+];
 
-function paintTable() {
-    var tbl = "<table class=\"album\"";
-    var f = 0;
-    var t = 0;
-    var f1 = 0;
-    var t1 = 0;
+(function($) {
+	for (let i=0; i<data.length; i++) {
+		$('.img-list').append(`<li><a href="img/${data[i].src}" title="${data[i].title}"><img src="img/${data[i].srcSmall}">${data[i].title}</a></li>`);
+	}
+
+	var $li = $('.img-list').find('> li'),
+		$links = $li.find('> a'),
+		$lightbox = $('.lightbox'),
+		$bigImage = $('.lightbox').find('img'),
+		$next = $('.next'),
+		$prev = $('.prev'),
+		$overlay = $('.overlay'),
+		liIndex,
+		titleImg,
+		targetImg;
 
 
 
+	function replaceImg(src, title) {
+		$lightbox.find('img').attr('src', src).attr('title', title);
+		$lightbox.find('.caption').html(title)
+	}
 
-    document.write(tbl);
-    for (var i = 0; i < 6; i++) {
-        document.write("<tr>");
-        for (var j = 0; j < 5; j++) {
-            if (i%2===0) {
-                document.write("<td><img class=\"tableImage\" src=\"img/" + fotos[f] + "\" title=\""+titles[t1]+"\"></td>");
-                f++;
-                t1++;
-            }
-            else {
-                document.write("<td><a href=\"img/" +fotos[f1] +"\" target=\"_blank\">"  + titles[t] + "</a></td>");
-                f1++;
-                t++;
-            }
-        }
-        document.write("</tr>");
-    }
-    document.write("</table>");
+	function getHref(index) {
+		return $li.eq(index).find('>a').attr('href');
+	}
 
-		var elems = document.querySelectorAll('img.tableImage');
-		var div = document.createElement('div');
-		var img = document.createElement('img');
-		div.id = "renderImage";
-		div.className = "imageWindow";
+	function getTitle(index) {
+		return $li.eq(index).find('>a').attr('title');
+	}
 
+	function closeLigtbox() {
+		$lightbox.fadeOut();
+	}
 
+	$overlay.click(closeLigtbox);
+	$bigImage.click(closeLigtbox);
 
+	$links.click(function(e) {
+		e.preventDefault();
+		targetImg = $(this).attr('href');
+		titleImg = $(this).attr('title');
+		liIndex = $(this).parent().index();
+		replaceImg(targetImg, titleImg);
+		$lightbox.fadeIn();
+	});
 
-		for (let i=0;i<=elems.length;i++ ) {
-			elems[i].onclick = function () {
-				img.setAttribute('src', elems[i].src);
-				forBigImage.appendChild(div);
-				renderImage.appendChild(img);
-				div.onclick = function () {
-					div.remove();
-				}
-			};
+	$next.click( function() {
+		if ( (liIndex + 1) < $li.length ) {
+			targetImg = getHref(liIndex + 1);
+			titleImg = getTitle(liIndex+1);
+			liIndex ++;
+		} else {
+			titleImg = getTitle(0);
+			targetImg = getHref(0);
+			liIndex = 0;
 		}
-}
+		replaceImg(targetImg, titleImg);
+	});
+
+	$prev.click( function() {
+		if ( (liIndex) > 0 ) {
+			targetImg = getHref(liIndex - 1);
+			console.log('--targetImg--', targetImg); /*---------------------------------------------------------------------------*/
+			titleImg = getTitle(liIndex - 1);
+			liIndex --;
+		} else {
+			targetImg = getHref($li.length - 1);
+			titleImg = getTitle($li.length - 1);
+			liIndex = $li.length - 1;
+		}
+		replaceImg(targetImg, titleImg);
+	});
+
+})(jQuery);

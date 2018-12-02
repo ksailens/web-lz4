@@ -512,3 +512,107 @@ div#error {
 #date_of_birth {
     margin-bottom: 20px;
 }
+
+/*---------------for gallery-----------------*/
+.img-list img {
+    text-align: center;
+    display: block;
+    /*max-width: 85%;*/
+}
+
+.gallery {
+    width: 773px;
+    margin: 20px auto 20px;
+    background: #3c6b92;
+    padding-top: 10px;
+}
+
+.gallery figure {
+
+}
+
+.img-list {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.img-list li {
+    display: inline-block;
+    list-style: none;
+    width: 144px;
+    vertical-align: top;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 5px;
+}
+.img-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+.img-list li a:hover {
+    text-decoration: underline;
+}
+
+.img-list img {
+    width: 144px;
+    /*max-width: 100%;*/
+    height: 200px;
+}
+
+/*
+=lightbox
+*/
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 25px 0;
+    display: none;
+    overflow-y: auto;
+}
+
+.overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+}
+
+.lightbox figure {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 30%;
+    max-width: 800px;
+    background: #afd6f5;
+}
+.lightbox img {
+    max-width: 75%;
+    width: 100%;
+}
+
+.next, .prev,.caption {
+    display: inline-block;
+    color:#fff;
+    margin: 15px 10px;
+    cursor: pointer;
+    font-size: 25px;
+}
+.next {
+    float: right;
+}
+.prev {
+    float: left;
+    /*left: 0;*/
+}
+.caption {
+    color: black;
+}

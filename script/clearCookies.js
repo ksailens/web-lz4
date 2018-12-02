@@ -23,6 +23,7 @@ $(document).ready(function() { // вся мaгия пoсле зaгрузки с�
 	$('#buttonYes').click( function(){ // лoвим клик пo кнопке или пoдлoжке
 
 		closeModal();
+		sessionStorage.clear();  // очищаем storage
 		for (var i=0; i<7; i++) { //удаляем куки, присваивая времени жизни прошедшую дату
 			const date = new Date(0);
 			document.cookie = `${pages[i]}=; path=/web-lz4; expires=${date.toUTCString()}`;

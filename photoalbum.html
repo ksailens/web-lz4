@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Персональный сайт Гридасовой Карины. Фотоальбом.</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="script/table.js"></script>
     <script src="script/onMenuHoverBackgr.js"></script>
     <script src="script/sessionStorageHistory.js"></script>
     <script src="script/globalHistory.js"></script>
@@ -34,10 +33,18 @@
         </nav>
         <section>
             <h2>Мой фотоальбом</h2>
-            <div id="forBigImage"></div>
-            <script>
-                paintTable()
-            </script>
+            <div class="gallery">
+                <ul class="img-list"></ul>
+                <div class="lightbox">
+                    <div class="overlay"></div>
+                    <figure>
+                        <span class="prev">← prev</span>
+                        <span class="caption"></span>
+                        <span class="next">next →</span>
+                        <img src="#">
+                    </figure>
+                </div>
+            </div>
         </section>
     </div>
     <footer>
@@ -48,5 +55,6 @@
 </div>
 <script src="script/jquery-3.3.1.min.js"></script>
 <script src="script/currentTime.js"></script>
+<script src="script/table.js"></script>
 </body>
 </html>
