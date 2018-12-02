@@ -7,6 +7,7 @@
     <script src="script/onMenuHoverBackgr.js"></script>
     <script src="script/sessionStorageHistory.js"></script>
     <script src="script/globalHistory.js"></script>
+    <script src="script/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -37,6 +38,13 @@
                 getSessionStorage();
                 renderCookieTable('currentDate');
             </script>
+            <div id="modal_form">
+                <p>Вы действительно хотите удалить данные об общем количестве посещений?</p>
+                <button id="buttonYes">Да</button>
+                <button id="buttonNo">Нет</button>
+            </div>
+            <div id="overlay"></div>
+            <button id="history-clear">Очистить историю</button>
         </section>
     </div>
     <footer>
@@ -44,7 +52,9 @@
         <p class="footerNote2">г. Севастополь СевГУ</p>
         <p class="anchor1"><a href="#top">Наверх</a></p>
     </footer>
-    <script src="script/currentTime.js"></script>
 </div>
+<script src="script/jquery-3.3.1.min.js"></script>
+<script src="script/currentTime.js"></script>
+<script src="script/clearCookies.js"></script>
 </body>
 </html>

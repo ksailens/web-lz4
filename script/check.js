@@ -3,9 +3,9 @@
 	var emailValid = document.getElementById("email");
 	var dateOfBirth = document.getElementById('dateOfBirth');
 	var questionValidate = document.getElementById('question');
-	var sexSelection = document.getElementById('sexSelection');
-	var ageSelection = document.getElementById('ageSelection');
-	var ageSelectOption = document.getElementById('ageSelectOption');
+	// var sexSelection = document.getElementById('sexSelection');
+	// var ageSelection = document.getElementById('ageSelection');
+	// var ageSelectOption = document.getElementById('ageSelectOption');
 	var divError = document.createElement('div');
 	var getTestForm = document.contactsForm;
 	var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

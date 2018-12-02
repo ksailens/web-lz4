@@ -135,11 +135,17 @@ section h2 {
 
 /* страница для связи */
 #contacts {
+    position: relative;
     width: 600px;
     border: 1px solid;
     margin: 40px auto 0;
     background: #8bb2f0;
     overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 #contacts h3   {
     text-align: center;
@@ -152,7 +158,7 @@ section h2 {
     width: 400px;
     height: 100px;
     resize: none;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     float: left;
     clear: both;
 }
@@ -163,9 +169,10 @@ section h2 {
 }
 #contacts p {
     margin-top: 5px;
-    margin-left: 20px;
+    width: 100%;
     float: left;
     clear: both;
+    position: relative;
 }
 #contacts input[type="radio"] {
     margin: 2px 3px 0 0;
@@ -178,7 +185,7 @@ section h2 {
     float: left;
     margin-top: 30px;
     margin-bottom: 40px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 /* фотоальбом */
 
@@ -430,7 +437,7 @@ input:focus, textarea:focus {
 #calendar {
     float: left;
     clear: both;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 
 .album th {
@@ -447,5 +454,61 @@ div#error {
 }
 
 .focusP2 {
-    width: 580px;
+    /*width: 580px;*/
+}
+
+#modal_form {
+    width: 300px;
+    height: 100px; /* Рaзмеры дoлжны быть фиксирoвaны */
+    border: 3px #000 solid;
+    background: #fff;
+    text-align: center;
+    position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+    top: 10%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+    left: 50%; /* пoлoвинa экрaнa слевa */
+    margin-top: -150px;
+    margin-left: -150px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+    display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+    opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+    z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+    padding: 20px 10px;
+}
+#overlay {
+    z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+    position:fixed; /* всегдa перекрывaет весь сaйт */
+    background-color:#000; /* чернaя */
+    opacity:0.8; /* нo немнoгo прoзрaчнa */
+    width:100%;
+    height:100%; /* рaзмерoм вo весь экрaн */
+    top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+    left:0;
+    cursor:pointer;
+    display:none; /* в oбычнoм сoстoянии её нет) */
+}
+
+#buttonYes, #buttonNo {
+    margin-top: 20px;
+    width: 70px;
+}
+
+#history-clear {
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.tooltip-message {
+    display: block;
+    position: absolute;
+    text-align: center;
+    background: #8CB3D2;
+    width: 150px;
+    right: 0px;
+    border: 1px solid black;
+    margin-top: -25px;
+    padding: 10px 10px 10px 10px;
+}
+
+#date_of_birth {
+    margin-bottom: 20px;
 }

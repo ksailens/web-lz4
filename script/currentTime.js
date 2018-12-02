@@ -14,7 +14,13 @@ function getCurrDate() {
 	if (MM < 10) MM = '0' + MM;
 	return hh+':'+mm+':'+ss+' '+dd+'-'+MM+'-'+curDate.getFullYear()+' '+weekDays[curDate.getDay()];
 }
+
 setInterval(function() {
-	timeNode.innerHTML = getCurrDate()
+		timeNode.innerHTML = getCurrDate()
 	}, 1000
 );
+
+$(function () {
+	timeNode.innerHTML = getCurrDate()
+});
+
