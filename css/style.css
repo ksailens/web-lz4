@@ -309,9 +309,15 @@ section h3  {
 
 /*страница теста */
 #tests {
+    position: relative;
     width: 640px;
     margin: 30px auto 50px;
     overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 #tests h3   {
     text-align: center;
@@ -336,8 +342,10 @@ section h3  {
 #tests p {
     margin-top: 5px;
     margin-left: 20px;
+    width: 90%;
     float: left;
     clear: both;
+    position: relative;
 }
 
 .inputLength1 {

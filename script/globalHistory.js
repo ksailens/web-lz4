@@ -16,7 +16,6 @@ function setCookie(name) {
 	}
 	newValue = currentValue + 1;
 	document.cookie = `${name}=${newValue}; expires=${date}`;
-
 }
 
 
