@@ -181,8 +181,17 @@ section h2 {
     width: 300px;
 }
 
-.submit {
+#contacts .reset {
     float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    clear: none;
+    width: 70px;
+}
+
+#contacts .submit {
+    float: left;
+    clear: none;
     margin-top: 30px;
     margin-bottom: 40px;
     /*margin-left: 20px;*/
